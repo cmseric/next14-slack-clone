@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -32,6 +33,7 @@ export const CreateWorkspaceModal = () => {
 
     mutate({ name }, {
       onSuccess(id) {
+        toast.success("Workspace created");
         router.push(`/workspace/${id}`);
         handleClose();
       }
