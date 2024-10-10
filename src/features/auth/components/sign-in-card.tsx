@@ -35,6 +35,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
       })
       .finally(() => {
         setPending(false);
+        window.location.reload();
       });
   }
 

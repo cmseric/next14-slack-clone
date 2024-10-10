@@ -44,6 +44,7 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
       })
       .finally(() => {
         setPending(false);
+        window.location.reload();
       })
   }
 
