@@ -1,6 +1,7 @@
 import { AlertTriangle, HashIcon, Loader, MessageSquareText, SendHorizonal } from "lucide-react";
 
 import { useWorkspaceId } from "@/hooks/use-workspace-id"
+import { useChannelId } from "@/hooks/use-channel-id";
 import { useCurrentMember } from "@/features/members/api/use-current-members";
 import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
 import { useGetChannels } from "@/features/channels/api/use-get-channels";
@@ -13,6 +14,7 @@ import { UserItem } from "./user-item";
 import { WorkspaceSection } from "./worksapce-section";
 
 export const WorkspaceSidebar = () => {
+  const channelId = useChannelId();
   const workspaceId = useWorkspaceId();
 
   const [_open, setOpen] = useCreateChannelModal();
@@ -67,6 +69,7 @@ export const WorkspaceSidebar = () => {
             icon={HashIcon}
             label={item.name}
             id={item._id}
+            variant={channelId === item._id ? "active" : "default"}
           />
         ))}
       </WorkspaceSection>
