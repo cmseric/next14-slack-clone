@@ -7,13 +7,13 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger
-} from "./popover";
+} from "./ui/popover";
 import { 
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from "./tooltip";
+} from "./ui/tooltip";
 
 interface EmojiPopoverProps {
   children: React.ReactNode;
