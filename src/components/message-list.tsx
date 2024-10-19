@@ -63,8 +63,6 @@ export const MessageList = ({
     {} as Record<string, typeof data>
   );
 
-
-
   return (
     <div className="flex-1 flex flex-col-reverse pb-4 overflow-y-auto messages-scrollbar">
       {Object.entries(groupedMessages || {}).map(([dateKey, messages]) => (
