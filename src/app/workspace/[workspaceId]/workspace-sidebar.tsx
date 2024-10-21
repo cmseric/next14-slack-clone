@@ -2,6 +2,8 @@ import { AlertTriangle, HashIcon, Loader, MessageSquareText, SendHorizonal } fro
 
 import { useWorkspaceId } from "@/hooks/use-workspace-id"
 import { useChannelId } from "@/hooks/use-channel-id";
+import { useMemberId } from "@/hooks/use-member-id";
+
 import { useCurrentMember } from "@/features/members/api/use-current-members";
 import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
 import { useGetChannels } from "@/features/channels/api/use-get-channels";
@@ -14,8 +16,9 @@ import { UserItem } from "./user-item";
 import { WorkspaceSection } from "./worksapce-section";
 
 export const WorkspaceSidebar = () => {
-  const channelId = useChannelId();
   const workspaceId = useWorkspaceId();
+  const channelId = useChannelId();
+  const memberId = useMemberId();
 
   const [_open, setOpen] = useCreateChannelModal();
 
@@ -84,6 +87,7 @@ export const WorkspaceSidebar = () => {
             id={item._id}
             label={item.user.name}
             image={item.user.image}
+            variant={item._id === memberId ? "active" : "default"}
           />
         ))}
       </WorkspaceSection>
